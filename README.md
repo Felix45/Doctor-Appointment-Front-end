@@ -4,7 +4,7 @@
 
 > This web application is the API that serves as the front-end to the [Doctor-appointment-back-end](https://github.com/silviatofana/Doctor-appointment)
 
-## Front-end Repository
+## Back-end Repository
 | Repository | Pull request |
 |------------|------------|
 |[Repo link >>](https://github.com/silviatofana/Doctor-appointment)|[Pull request Here >>](https://github.com/silviatofana/Doctor-appointment/pull/)|
