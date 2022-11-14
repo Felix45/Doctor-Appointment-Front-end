@@ -9,6 +9,8 @@
 |------------|------------|
 |[Repo link >>](https://github.com/silviatofana/Doctor-appointment)|[Pull request Here >>](https://github.com/silviatofana/Doctor-appointment/pull/)|
 
+## Live demo
+[Click here for live demo >>](https://doctora-app.netlify.app/)
 
 ## Built With
 
