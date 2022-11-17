@@ -7,7 +7,7 @@ const http = axios.create({ baseURL: BASE_URL });
 const initialState = {
   isLoading: false,
   isFaild: false,
-  appointments: [],
+  appointment: [],
 };
 
 export const appointmentsCreateThunk = createAsyncThunk(
@@ -26,14 +26,14 @@ const appointmentSlice = createSlice({
     clearAppointments(state) {
       return {
         ...state,
-        appointments: [],
+        appointment: [],
       };
     },
   },
   extraReducers: {
     [appointmentsCreateThunk.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.appointments = action.payload;
+      state.appointment = action.payload;
     },
     [appointmentsCreateThunk.pending]: (state) => { state.isLoading = true; },
     [appointmentsCreateThunk.rejected]: (state) => { state.isFaild = true; },

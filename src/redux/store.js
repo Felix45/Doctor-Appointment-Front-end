@@ -11,7 +11,7 @@ const persistConfig = { key: 'database', storage };
 const reducers = combineReducers({
   user: authSlice,
   token: loginSlice,
-  appointments: appointmentSlice,
+  appointment: appointmentSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

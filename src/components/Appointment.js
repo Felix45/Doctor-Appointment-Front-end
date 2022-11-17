@@ -15,10 +15,13 @@ function Appointment() {
   const [timeOfAppointment, setTime] = useState('');
   const [description, setDescription] = useState('');
   const [doctorId, setDoctorId] = useState('');
+  const [createAppointment, setAppointment] = useState('');
 
   const { token } = useSelector((state) => state.token);
+  const { appointment } = useSelector((state) => state.appointment);
   useEffect(() => {
     if (!token.isLoggedIn) navigate('/login');
+    setAppointment(appointment.message);
   }, [token, navigate]);
 
   const doctors = [{ name: 'Dr. Felix Ouma', id: 1 }, { name: 'Dr. Silvia Tofana', id: 2 }];
@@ -75,6 +78,17 @@ function Appointment() {
             <Button type="submit">Book appointment</Button>
           </Form.Group>
         </Form>
+      </Col>
+      <Col xs={12} className="mt-2 p-2">
+        <Row>
+          { createAppointment && (
+          <div className="alert alert-success">
+            {' '}
+            { createAppointment }
+            {' '}
+          </div>
+          ) }
+        </Row>
       </Col>
     </Row>
   );
