@@ -5,9 +5,14 @@ import {
 } from 'redux-persist';
 import authSlice from './slices/authSlice';
 import loginSlice from './slices/loginSlice';
+import appointmentSlice from './slices/appointmentSlice';
 
 const persistConfig = { key: 'database', storage };
-const reducers = combineReducers({ user: authSlice, token: loginSlice });
+const reducers = combineReducers({
+  user: authSlice,
+  token: loginSlice,
+  appointment: appointmentSlice,
+});
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
