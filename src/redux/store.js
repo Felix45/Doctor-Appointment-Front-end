@@ -12,6 +12,7 @@ const reducers = combineReducers({
   user: authSlice,
   token: loginSlice,
   appointment: appointmentSlice,
+  appointments: appointmentSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
