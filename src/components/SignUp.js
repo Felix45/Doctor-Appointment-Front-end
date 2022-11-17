@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -7,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import { userSignUpThunk } from '../redux/slices/authSlice';
 
 function SignUp() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -28,11 +30,17 @@ function SignUp() {
       setPasswordConfirm('');
       setAlert('alert-success');
       setMessage('Registration was successful');
+      navigate('/login');
     } else {
       setAlert('alert-danger');
       setMessage('An error occured while registering the user');
     }
   };
+
+  const { token } = useSelector((state) => state.token);
+  useEffect(() => {
+    if (token.isLoggedIn) navigate('/');
+  }, [token, navigate]);
 
   return (
     <Form className="mt-5" onSubmit={(e) => { handleSubmit(e); }}>

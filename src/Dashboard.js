@@ -1,11 +1,26 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from './redux/slices/loginSlice';
+import Login from './components/Login';
+import Splash from './components/Splash';
+import Profile from './components/Profile';
 
 function Dashboard() {
+  const dispatch = useDispatch();
+
+  const { token } = useSelector((state) => state.token);
+
+  const handleLogOut = () => {
+    dispatch(logout());
+    return <Login />;
+  };
+
   return (
     <Container>
       <Row>
@@ -13,11 +28,15 @@ function Dashboard() {
           <h1>Menu</h1>
           <ul>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/signup">Sign Up</NavLink></li>
-            <li><NavLink to="/login">Sign In</NavLink></li>
+            { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/signup">Sign Up</NavLink></li> }
+            { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/login">Sign In</NavLink></li> }
+            { (token.isLoggedIn !== undefined && token.isLoggedIn)
+              && <li><NavLink onClick={handleLogOut}>Sign Out</NavLink></li>}
           </ul>
         </Col>
         <Col xs={9}>
+          <Profile />
+          <Splash />
           <Outlet />
         </Col>
       </Row>
