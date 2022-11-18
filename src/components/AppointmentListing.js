@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { v4 as uuid } from 'uuid';
 import { appointmentsFetchThunk } from '../redux/slices/appointmentSlice';
+import { appointmentsDeleteThunk } from '../redux/slices/appointmentSlice';
 
 function AppointmentListing () {
   const navigate = useNavigate();
@@ -17,11 +18,13 @@ function AppointmentListing () {
   const { appointments } = useSelector((state) => state.appointments);
   useEffect(() => {
     if (!token.isLoggedIn) navigate('/login');
-    dispatch(appointmentsFetchThunk());
+    dispatch(appointmentsFetchThunk(token));
   }, [token, navigate]);
 
-   const handleDelete = (e) => {
-   e.preventDefault();
+   const handleDelete = (appointmentId) => {
+     Promise.resolve(dispatch(appointmentsDeleteThunk({token, appointmentId }))).then(
+      () => dispatch(appointmentsFetchThunk(token)),
+    );
   };
 
   return (
@@ -37,16 +40,18 @@ function AppointmentListing () {
                     <th>Patient</th>
                 </tr>
             </thead>
-            {
+            <tbody>
+              {
                 appointments.map((appointment) => ( <tr key={uuid()}>
                     <td>{appointment.doctor_id}</td>
                     <td>{appointment.date_of_appointment}</td>
                     <td>{appointment.time_of_appointment}</td>
                     <td>{appointment.description}</td>
-                    <td>{appointment.user_id}</td>
+                    <td>{token.username}</td>
                     <td><Button id={appointment.id} variant="danger" onClick={(e) => { handleDelete(e.target.id); }}>Delete</Button></td>
                 </tr>))
             }
+            </tbody>
         </Table>
       </Col>
     </Row>
