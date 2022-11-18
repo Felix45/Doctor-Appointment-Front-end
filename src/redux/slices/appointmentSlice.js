@@ -17,7 +17,6 @@ export const appointmentsCreateThunk = createAsyncThunk(
       'Content-Type': 'application/json',
       Authorization: appointment.token,
     };
-    console.log(appointment, headers);
     const URL = `${BASE_URL}/users/${appointment.user_id}/appointments/`;
     await http.post(URL, appointment, { headers });
   },
@@ -33,9 +32,8 @@ export const appointmentsFetchThunk = createAsyncThunk(
     const URL = `${BASE_URL}/users/${user.id}/appointments/`;
     const { data } = await http.get(URL, { headers });
     return data;
-  }
+  },
 );
-
 
 export const appointmentsDeleteThunk = createAsyncThunk(
   'appointments/delete',
@@ -44,11 +42,9 @@ export const appointmentsDeleteThunk = createAsyncThunk(
       'Content-Type': 'application/json',
       Authorization: user.token.token,
     };
-    console.log(user);
     const URL = `${BASE_URL}/users/${user.token.id}/appointments/${user.appointmentId}`;
-    console.log(URL);
     await http.delete(URL, { headers });
-  }
+  },
 );
 
 const appointmentSlice = createSlice({

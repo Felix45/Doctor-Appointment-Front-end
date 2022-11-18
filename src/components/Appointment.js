@@ -6,8 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { v4 as uuid } from 'uuid';
-import { appointmentsCreateThunk } from '../redux/slices/appointmentSlice';
-import { appointmentsFetchThunk } from '../redux/slices/appointmentSlice';
+import { appointmentsCreateThunk, appointmentsFetchThunk } from '../redux/slices/appointmentSlice';
 
 function Appointment() {
   const navigate = useNavigate();
@@ -18,7 +17,6 @@ function Appointment() {
   const [doctorId, setDoctorId] = useState('');
 
   const { token } = useSelector((state) => state.token);
-  const { appointments } = useSelector((state) => state.appointments);
   useEffect(() => {
     if (!token.isLoggedIn) navigate('/login');
   }, [token, navigate]);
@@ -39,12 +37,11 @@ function Appointment() {
       Promise.resolve(dispatch(appointmentsCreateThunk(appointment))).then(
         () => dispatch(appointmentsFetchThunk(token)),
       );
-  
+
       setDate('');
       setTime('');
       setDescription('');
     }
-
   };
 
   return (
@@ -84,7 +81,7 @@ function Appointment() {
           </Form.Group>
         </Form>
       </Col>
-      <Col xs={12} className="mt-2 p-2"></Col>
+      <Col xs={12} className="mt-2 p-2" />
     </Row>
   );
 }

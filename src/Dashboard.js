@@ -32,7 +32,7 @@ function Dashboard() {
             { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/login">Sign In</NavLink></li> }
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
               && <li><NavLink to="/appointments">Book Appointment</NavLink></li>}
-              { (token.isLoggedIn !== undefined && token.isLoggedIn)
+            { (token.isLoggedIn !== undefined && token.isLoggedIn)
               && <li><NavLink to="/myappointments">My Appointments</NavLink></li>}
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
               && <li><NavLink onClick={handleLogOut}>Sign Out</NavLink></li>}
