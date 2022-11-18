@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { v4 as uuid } from 'uuid';
 import { appointmentsCreateThunk } from '../redux/slices/appointmentSlice';
+import { appointmentsFetchThunk } from '../redux/slices/appointmentSlice';
 
 function Appointment() {
   const navigate = useNavigate();
@@ -15,13 +16,11 @@ function Appointment() {
   const [timeOfAppointment, setTime] = useState('');
   const [description, setDescription] = useState('');
   const [doctorId, setDoctorId] = useState('');
-  const [createAppointment, setAppointment] = useState('');
 
   const { token } = useSelector((state) => state.token);
-  const { appointment } = useSelector((state) => state.appointment);
+  const { appointments } = useSelector((state) => state.appointments);
   useEffect(() => {
     if (!token.isLoggedIn) navigate('/login');
-    setAppointment(appointment.message);
   }, [token, navigate]);
 
   const doctors = [{ name: 'Dr. Felix Ouma', id: 1 }, { name: 'Dr. Silvia Tofana', id: 2 }];
@@ -29,17 +28,23 @@ function Appointment() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (dateOfAppointment !== '' && timeOfAppointment !== '' && description !== '' && doctorId !== '') {
-      dispatch(appointmentsCreateThunk({
+      const appointment = {
         date_of_appointment: dateOfAppointment,
         time_of_appointment: timeOfAppointment,
         description,
         doctor_id: doctorId,
         user_id: token.id,
-      }));
+        token: token.token,
+      };
+      Promise.resolve(dispatch(appointmentsCreateThunk(appointment))).then(
+        () => dispatch(appointmentsFetchThunk(token)),
+      );
+  
       setDate('');
       setTime('');
       setDescription('');
     }
+
   };
 
   return (
@@ -79,17 +84,7 @@ function Appointment() {
           </Form.Group>
         </Form>
       </Col>
-      <Col xs={12} className="mt-2 p-2">
-        <Row>
-          { createAppointment && (
-          <div className="alert alert-success">
-            {' '}
-            { createAppointment }
-            {' '}
-          </div>
-          ) }
-        </Row>
-      </Col>
+      <Col xs={12} className="mt-2 p-2"></Col>
     </Row>
   );
 }
