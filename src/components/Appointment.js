@@ -17,11 +17,11 @@ function Appointment() {
   const [doctorId, setDoctorId] = useState('');
 
   const { token } = useSelector((state) => state.token);
+  const { doctors } = useSelector((state) => state.doctors);
+
   useEffect(() => {
     if (!token.isLoggedIn) navigate('/login');
   }, [token, navigate]);
-
-  const doctors = [{ name: 'Dr. Felix Ouma', id: 1 }, { name: 'Dr. Silvia Tofana', id: 2 }];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ function Appointment() {
         token: token.token,
       };
       Promise.resolve(dispatch(appointmentsCreateThunk(appointment))).then(
-        () => dispatch(appointmentsFetchThunk(token)),
+        () => dispatch(appointmentsFetchThunk()),
       );
 
       setDate('');

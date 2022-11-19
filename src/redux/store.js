@@ -5,12 +5,14 @@ import {
 } from 'redux-persist';
 import authSlice from './slices/authSlice';
 import loginSlice from './slices/loginSlice';
+import doctorSlice from './slices/doctorSlice';
 import appointmentSlice from './slices/appointmentSlice';
 
 const persistConfig = { key: 'database', storage };
 const reducers = combineReducers({
   user: authSlice,
   token: loginSlice,
+  doctors: doctorSlice,
   appointments: appointmentSlice,
 });
 

@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { persistStore } from 'redux-persist';
@@ -6,6 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import SignUp from './components/SignUp';
 import store from './redux/store';
 import Login from './components/Login';
+import Doctor from './components/Doctor';
 import Appointment from './components/Appointment';
 import AppointmentListing from './components/AppointmentListing';
 import Dashboard from './Dashboard';
@@ -21,6 +23,7 @@ function App() {
             <Route path="/" element={<Dashboard />}>
               <Route exact path="signup" element={<SignUp />} />
               <Route exact path="login" element={<Login />} />
+              <Route exact path="doctor" element={<Doctor />} />
               <Route exact path="appointments" element={<Appointment />} />
               <Route exact path="myappointments" element={<AppointmentListing />} />
             </Route>
