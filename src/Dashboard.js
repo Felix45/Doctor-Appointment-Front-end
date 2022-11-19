@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -7,6 +7,7 @@ import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from './redux/slices/loginSlice';
+import { doctorsFetchThunk } from './redux/slices/doctorSlice';
 import Login from './components/Login';
 import Splash from './components/Splash';
 import Profile from './components/Profile';
@@ -15,6 +16,13 @@ function Dashboard() {
   const dispatch = useDispatch();
 
   const { token } = useSelector((state) => state.token);
+  const { doctors } = useSelector((state) => state.doctors);
+
+  if (doctors.length === 0) {
+    useEffect(() => {
+      dispatch(doctorsFetchThunk());
+    }, []);
+  }
 
   const handleLogOut = () => {
     dispatch(logout());
@@ -30,6 +38,8 @@ function Dashboard() {
             <li><NavLink to="/">Home</NavLink></li>
             { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/signup">Sign Up</NavLink></li> }
             { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/login">Sign In</NavLink></li> }
+            { (token.isLoggedIn !== undefined && token.isLoggedIn)
+              && <li><NavLink to="/doctor">Add Doctor</NavLink></li>}
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
               && <li><NavLink to="/appointments">Book Appointment</NavLink></li>}
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
