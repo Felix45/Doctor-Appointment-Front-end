@@ -1,34 +1,41 @@
 import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
+import { Link, useParams } from 'react-router-dom';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 
 const DoctorDetails = () => {
-  const { state: { doctor } } = useLocation();
-  return (
-    <div>
-      <Link to="/">
-        <button><FaArrowLeft /></button>
-      </Link>
-      <div>
-        <div>
-          <h2> Doctor Name</h2>
-          <h3>{doctor.name}</h3>
-        </div>
-        <div>
-          <div>
-            <h2>Doctor Biography</h2>
-            <p>{doctor.bio}</p>
-            <h2>Doctor Specialization</h2>
-            <p>{doctor.specialization}</p>
-          </div>
-          <div>
-            <h2>Doctor Avaliability</h2>
-            <p>{doctor.avaliability}</p>
+  const { index } = useParams();
+  const { doctors } = useSelector((state) => state.doctors);
+  const doctor = doctors[parseInt(index, 10) - 1];
 
-          </div>
-        </div>
-      </div>
-    </div>
+  return (
+    <Container>
+      <Row>
+        <Link to="/">
+          <span>
+            Home
+            <FaArrowLeft />
+          </span>
+        </Link>
+        <Col xs={12}>
+          <Card>
+            <Card.Img variant="top" src={doctor.photo} alt={`Doctor ${doctor.name} photo`} />
+            <Card.Body>
+              <Card.Title>{ doctor.name }</Card.Title>
+              <Card.Title>{ doctor.specialization }</Card.Title>
+              <Card.Text>{ doctor.bio }</Card.Text>
+              <div>
+                <Link to={`DoctorDetails/${index + 1}`}><span><FaArrowRight /></span></Link>
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
