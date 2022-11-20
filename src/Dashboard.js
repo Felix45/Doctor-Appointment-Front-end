@@ -11,6 +11,7 @@ import { doctorsFetchThunk } from './redux/slices/doctorSlice';
 import Login from './components/Login';
 import Splash from './components/Splash';
 import Profile from './components/Profile';
+import DoctorList from './components/DoctorList';
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -40,6 +41,8 @@ function Dashboard() {
             { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/login">Sign In</NavLink></li> }
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
               && <li><NavLink to="/doctor">Add Doctor</NavLink></li>}
+            { (token.isLoggedIn !== undefined && token.isLoggedIn)
+              && <li><NavLink to="/doctors/">Doctors</NavLink></li>}
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
               && <li><NavLink to="/appointments">Book Appointment</NavLink></li>}
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
