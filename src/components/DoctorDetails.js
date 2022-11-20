@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -15,21 +15,23 @@ const DoctorDetails = () => {
   return (
     <Container>
       <Row>
-        <Link to="/">
+        <Link to="/doctors">
           <span>
-            Home
             <FaArrowLeft />
+            All Doctors
           </span>
         </Link>
+      </Row>
+      <Row className="d-flex">
         <Col xs={12}>
           <Card>
-            <Card.Img variant="top" src={doctor.photo} alt={`Doctor ${doctor.name} photo`} />
+            <Card.Img variant="top" src={`https://finalcapstonedoctorappointment.herokuapp.com/images/${doctor.photo}`} alt={`Doctor ${doctor.name} photo`} />
             <Card.Body>
               <Card.Title>{ doctor.name }</Card.Title>
               <Card.Title>{ doctor.specialization }</Card.Title>
               <Card.Text>{ doctor.bio }</Card.Text>
               <div>
-                <Link to={`DoctorDetails/${index + 1}`}><span><FaArrowRight /></span></Link>
+                <Link to="/doctors"><span><FaArrowLeft /></span></Link>
               </div>
             </Card.Body>
           </Card>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
@@ -11,12 +12,15 @@ const DoctorList = () => {
   const { doctors } = useSelector((state) => state.doctors);
   return (
     <Container>
-      <Link to="/doctor" className="btn btn-details mt-4 text-center">Add Doctor</Link>
-      {
+      <Row>
+        <Link to="/doctor" className="btn btn-details mt-4 text-center">Add Doctor</Link>
+      </Row>
+      <Row className="d-flex">
+        {
           doctors.map((doctor, index) => (
             <Col xs={4} key={uuid()}>
               <Card>
-                <Card.Img variant="top" src={doctor.photo} alt={`Doctor ${doctor.name} photo`} />
+                <Card.Img variant="top" src={`https://finalcapstonedoctorappointment.herokuapp.com/images/${doctor.photo}`} alt={`Doctor ${doctor.name} photo`} />
                 <Card.Body>
                   <Card.Title>{ doctor.name }</Card.Title>
                   <Card.Title>{ doctor.specialization }</Card.Title>
@@ -29,6 +33,7 @@ const DoctorList = () => {
             </Col>
           ))
       }
+      </Row>
     </Container>
   );
 };
