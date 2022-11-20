@@ -11,7 +11,6 @@ import { doctorsFetchThunk } from './redux/slices/doctorSlice';
 import Login from './components/Login';
 import Splash from './components/Splash';
 import Profile from './components/Profile';
-import DoctorList from './components/DoctorList';
 
 function Dashboard() {
   const dispatch = useDispatch();
