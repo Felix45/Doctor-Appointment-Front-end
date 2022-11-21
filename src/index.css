@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 body {
   margin: 0;
   font-family:
@@ -16,16 +18,42 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
+:root{
+  --bg_primary: #97c010;
+  --pacifico: 'Pacifico', cursive;
 }
 
+.btn,
+.btn-primary {
+  border: 1px solid var(--bg_primary) !important;
+  background-color: var(--bg_primary) !important;
+}
+
+.menu {
+  height: 100vh;
+  border-right: 4px solid #ddd;
+  box-shadow: 2px 2px 5px #fafafa;
+}
+
+.menu h1 {
+  font-family: var(--pacifico);
+}
+
+.menu ul,
 .splash {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
+}
+
+.menu ul li a {
+  color: #fff;
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: var(--bg_primary);
 }
