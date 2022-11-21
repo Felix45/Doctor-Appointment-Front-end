@@ -14,7 +14,7 @@ const DoctorDetails = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="mb-3">
         <Link to="/doctors">
           <span>
             <FaArrowLeft />
@@ -23,18 +23,20 @@ const DoctorDetails = () => {
         </Link>
       </Row>
       <Row className="d-flex">
-        <Col xs={12}>
+        <Col xs={5}>
           <Card>
             <Card.Img variant="top" src={`https://finalcapstonedoctorappointment.herokuapp.com/images/${doctor.photo}`} alt={`Doctor ${doctor.name} photo`} />
-            <Card.Body>
-              <Card.Title>{ doctor.name }</Card.Title>
-              <Card.Title>{ doctor.specialization }</Card.Title>
-              <Card.Text>{ doctor.bio }</Card.Text>
-              <div>
-                <Link to="/doctors"><span><FaArrowLeft /></span></Link>
-              </div>
-            </Card.Body>
           </Card>
+        </Col>
+        <Col xs={7}>
+          <Card.Body>
+            <Card.Title>{ doctor.name }</Card.Title>
+            <Card.Title>{ doctor.specialization }</Card.Title>
+            <Card.Text>{ doctor.bio }</Card.Text>
+            <div>
+              <Link to="/doctors"><span><FaArrowLeft /></span></Link>
+            </div>
+          </Card.Body>
         </Col>
       </Row>
     </Container>

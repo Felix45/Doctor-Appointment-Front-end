@@ -8,9 +8,9 @@ function Profile() {
   const { token } = useSelector((state) => state.token);
 
   return (
-    <Container className="mt-2">
+    <Container className="mt-2" fluid>
       <Row>
-        <Col xs={12}>
+        <Col xs={12} className="d-flex justify-content-end">
           { token.isLoggedIn && <h4>{ `Hi, ${token.username}!` }</h4> }
         </Col>
       </Row>
