@@ -74,7 +74,7 @@ function Doctor() {
 
           <Form.Group className="mb-3">
             <Form.Label>Doctors Photo</Form.Label>
-            <Form.Control type="url" placeholder="Enter doctor's photo" name="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
+            <Form.Control type="text" placeholder="Enter doctor's photo" name="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
           </Form.Group>
 
           <Form.Group>
