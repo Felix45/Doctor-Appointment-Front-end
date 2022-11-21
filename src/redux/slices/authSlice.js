@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const BASE_URL = 'http://localhost:3001/api/v1/users';
+const BASE_URL = 'https://finalcapstonedoctorappointment.herokuapp.com/api/v1/users';
 const http = axios.create({ baseURL: BASE_URL });
 
 const initialState = {

@@ -11,6 +11,8 @@ import Doctor from './components/Doctor';
 import Appointment from './components/Appointment';
 import AppointmentListing from './components/AppointmentListing';
 import Dashboard from './Dashboard';
+import DoctorList from './components/DoctorList';
+import DoctorDetails from './components/DoctorDetails';
 
 const persistor = persistStore(store);
 
@@ -24,6 +26,8 @@ function App() {
               <Route exact path="signup" element={<SignUp />} />
               <Route exact path="login" element={<Login />} />
               <Route exact path="doctor" element={<Doctor />} />
+              <Route exact path="doctors" element={<DoctorList />} />
+              <Route exact path="doctors/:index" element={<DoctorDetails />} />
               <Route exact path="appointments" element={<Appointment />} />
               <Route exact path="myappointments" element={<AppointmentListing />} />
             </Route>

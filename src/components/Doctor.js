@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +13,7 @@ function Doctor() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
+  const [gender, setGender] = useState('M');
   const [specialization, setSpecialization] = useState('');
   const [avaliability, setAvailability] = useState('');
   const [photo, setPhoto] = useState('');
@@ -25,9 +27,9 @@ function Doctor() {
     e.preventDefault();
     setAvailability('Y');
 
-    if (name !== '' && bio !== '' && specialization !== '' && avaliability !== '') {
+    if (name !== '' && bio !== '' && specialization !== '' && avaliability !== '' && gender !== '') {
       const doctor = {
-        name, bio, specialization, avaliability, photo, token: token.token,
+        name, bio, specialization, avaliability, photo, gender, token: token.token,
       };
 
       Promise.resolve(dispatch(doctorsCreateThunk(doctor))).then(
@@ -37,6 +39,7 @@ function Doctor() {
       setBio('');
       setName('');
       setPhoto('');
+      setGender('');
       setAvailability('');
       setSpecialization('');
     }
@@ -52,6 +55,14 @@ function Doctor() {
           </Form.Group>
 
           <Form.Group className="mb-3">
+            <Form.Label>Select gender</Form.Label>
+            <Form.Select aria-label="Default select example" onChange={(e) => setGender(e.target.value)}>
+              <option value="M" key={uuid()}>Male</option>
+              <option value="F" key={uuid()}>Female</option>
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group className="mb-3">
             <Form.Label>Specialization</Form.Label>
             <Form.Control type="text" placeholder="Enter docotor specialization" name="specialization" value={specialization} onChange={(e) => setSpecialization(e.target.value)} required />
           </Form.Group>
@@ -63,7 +74,7 @@ function Doctor() {
 
           <Form.Group className="mb-3">
             <Form.Label>Doctors Photo</Form.Label>
-            <Form.Control type="url" placeholder="Enter doctor's photo" name="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
+            <Form.Control type="text" placeholder="Enter doctor's photo" name="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
           </Form.Group>
 
           <Form.Group>
