@@ -16,13 +16,10 @@ function Dashboard() {
   const dispatch = useDispatch();
 
   const { token } = useSelector((state) => state.token);
-  const { doctors } = useSelector((state) => state.doctors);
 
-  if (doctors.length === 0) {
-    useEffect(() => {
-      dispatch(doctorsFetchThunk());
-    }, []);
-  }
+  useEffect(() => {
+    dispatch(doctorsFetchThunk());
+  }, []);
 
   const handleLogOut = () => {
     dispatch(logout());
@@ -38,8 +35,10 @@ function Dashboard() {
             <li><NavLink to="/">Home</NavLink></li>
             { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/signup">Sign Up</NavLink></li> }
             { (token.isLoggedIn === undefined || !token.isLoggedIn) && <li><NavLink to="/login">Sign In</NavLink></li> }
-            { (token.isLoggedIn !== undefined && token.isLoggedIn)
+            { (token.isLoggedIn !== undefined && token.isLoggedIn && token.role === 'admin')
               && <li><NavLink to="/doctor">Add Doctor</NavLink></li>}
+            { (token.isLoggedIn !== undefined && token.isLoggedIn)
+              && <li><NavLink to="/doctors/">Doctors</NavLink></li>}
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
               && <li><NavLink to="/appointments">Book Appointment</NavLink></li>}
             { (token.isLoggedIn !== undefined && token.isLoggedIn)
