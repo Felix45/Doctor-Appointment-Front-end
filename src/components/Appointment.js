@@ -45,11 +45,11 @@ function Appointment() {
   };
 
   return (
-    <Row>
+    <Row className="apt-col">
       <Col xs={12}>
-        <Form className="mt-5" onSubmit={(e) => { handleSubmit(e); }}>
+        <Form className="appointment-form mt-5" onSubmit={(e) => { handleSubmit(e); }}>
           <Form.Group className="mb-3">
-            <Form.Label>Select a docotor</Form.Label>
+            <Form.Label className=" text-white "><b>Select a doctor</b></Form.Label>
             <Form.Select aria-label="Default select example" onChange={(e) => setDoctorId(e.target.value)}>
               {
                 doctors.map((doctor) => (
@@ -62,22 +62,22 @@ function Appointment() {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Date of Appointment</Form.Label>
+            <Form.Label className=" text-white "><b>Date of Appointment</b></Form.Label>
             <Form.Control type="date" placeholder="Enter appointment date" name="date_of_appointment" value={dateOfAppointment} onChange={(e) => setDate(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Time of Appointment</Form.Label>
+            <Form.Label className=" text-white "><b>Time of Appointment</b></Form.Label>
             <Form.Control type="time" placeholder="Enter time of appointment" name="time_of_appointment" value={timeOfAppointment} onChange={(e) => setTime(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>How are you feeling today</Form.Label>
+            <Form.Label className=" text-white "><b>How are you feeling today</b></Form.Label>
             <Form.Control type="text" placeholder="Brief description..." name="description" value={description} onChange={(e) => setDescription(e.target.value)} required />
           </Form.Group>
 
           <Form.Group>
-            <Button type="submit">Book appointment</Button>
+            <Button type="submit"><b>Book appointment</b></Button>
           </Form.Group>
         </Form>
       </Col>
