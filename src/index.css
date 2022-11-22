@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 body {
   margin: 0;
   font-family:
@@ -16,16 +18,121 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
+:root {
+  --bg_black: #000;
+  --bg_primary: #97c010;
+  --pacifico: 'Pacifico', cursive;
 }
 
+.btn,
+.btn-primary {
+  border: 1px solid var(--bg_primary) !important;
+  background-color: var(--bg_primary) !important;
+}
+
+.text-primary {
+  color: var(--bg_primary) !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+}
+
+.menu {
+  height: 100vh;
+  display: none;
+  border-right: 4px solid #ddd;
+  box-shadow: 2px 2px 5px #fafafa;
+}
+
+.mobile-menu a {
+  font-weight: bold;
+  color: var(--bg_primary);
+  padding: 10px 5px;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--bg_primary);
+}
+
+.mobile-menu .navbar-brand {
+  color: var(--bg_black);
+  text-decoration: none;
+  border-bottom: none;
+  font-family: var(--pacifico);
+}
+
+.menu h1 {
+  font-family: var(--pacifico);
+}
+
+.menu ul,
 .splash {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
+}
+
+.form a {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--bg_primary);
+}
+
+.form-control {
+  background-color: #f5f5f5 !important;
+}
+
+.menu ul li a {
+  color: #fff;
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: var(--bg_primary);
+}
+
+.doctor {
+  width: 50%;
+  margin: auto;
+}
+
+.react-multiple-carousel__arrow {
+  color: #fff !important;
+  padding: 10px !important;
+  min-height: 50px !important;
+  min-width: 150px !important;
+  background-color: var(--bg_primary) !important;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: -20px !important;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: -20px !important;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+  margin: auto;
+  display: block;
+  width: 60% !important;
+}
+
+
+@media screen and (min-width: 768px) {
+  .menu {
+    display: block;
+  }
+
+  .form {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .mobile-menu {
+    display: none !important;
+  }
 }
