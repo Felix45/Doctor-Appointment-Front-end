@@ -14,6 +14,7 @@ import { doctorsFetchThunk } from './redux/slices/doctorSlice';
 import Login from './components/Login';
 import Splash from './components/Splash';
 import Profile from './components/Profile';
+import NavMenu from './components/NavBar';
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -32,7 +33,8 @@ function Dashboard() {
   return (
     <Container fluid>
       <Row>
-        <Col xs={2} className="menu">
+        <NavMenu />
+        <Col xs={12} md={2} className="menu">
           <h1 className="text-center my-4">Doctors Appointment</h1>
           <ul>
             <li>
@@ -112,7 +114,7 @@ function Dashboard() {
               )}
           </ul>
         </Col>
-        <Col xs={10}>
+        <Col xs={12} md={10}>
           <Profile />
           <Splash />
           <Outlet />
