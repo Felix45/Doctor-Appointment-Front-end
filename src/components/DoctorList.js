@@ -75,7 +75,7 @@ const DoctorList = () => {
               </Link>
 
               <Card className="border-0 mt-3 text-center">
-                <Card.Body className="border-0">       
+                <Card.Body className="border-0">
                   <Card.Title className="doctor-name"><b>{ doctor.name }</b></Card.Title>
                   <Card.Title className="doctor-specialization"><b>{ doctor.specialization }</b></Card.Title>
                   <Card.Text className="doctor-bio">{ doctor.bio }</Card.Text>
