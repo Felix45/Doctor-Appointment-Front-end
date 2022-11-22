@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -13,16 +13,14 @@ import insta from '../images/insta-icon-home.png';
 import fb from '../images/fb-icon-home.png';
 import twitter from '../images/twitter-icon-home.png';
 
-import "./Doctor.css"
-
 const social = [
   { icon: insta },
   { icon: fb },
   { icon: twitter },
 ];
 
-
 const DoctorList = () => {
+  const { token } = useSelector((state) => state.token);
   const { doctors } = useSelector((state) => state.doctors);
 
   const responsive = {
@@ -49,44 +47,52 @@ const DoctorList = () => {
   };
 
   return (
-    <Container>
+    <Container fluid>
       <Row>
-        <Link to="/doctor" className="btn btn-details mt-4 text-center">Add Doctor</Link>
+        <Col xs={12} className="d-flex justify-content-end">
+          { (token.isLoggedIn !== undefined && token.isLoggedIn && token.role === 'admin') && (
+          <Link to="/doctor" className="btn btn-primary btn-sm my-4 text-center">
+            <FaEdit />
+            {' '}
+            Add Doctor
+          </Link>
+          ) }
+        </Col>
       </Row>
       <Row className="d-flex p-8">
-      <Carousel
-                  responsive={responsive}
-                  className="carousel-container"
-                  infinite
-                >
+        <Carousel
+          responsive={responsive}
+          className="carousel-container"
+          infinite
+        >
 
-        {
+          {
           doctors.map((doctor, index) => (
-            <Col xs={4} key={uuid()} className="mt-5">
-              
+            <Col xs={12} md={12} key={uuid()} className="mt-5 doctor d-flex flex-column justify-content-around">
+
               <Link to={`/doctors/${index + 1}`}>
-                <Card.Img className="border-0" variant="top" src={`https://finalcapstonedoctorappointment.herokuapp.com/images/${doctor.photo}`} alt={`Doctor ${doctor.name} photo`} />
-                </Link>
-             
-              <Card className="border-0 mt-3 ">
-                <Card.Body className="border-0">
-                  <Card.Title className="doctor-name">{ doctor.name }</Card.Title>
-                  <Card.Title className="doctor-specialization">{ doctor.specialization }</Card.Title>
+                <Card.Img className="border-0 rounded-pill" variant="top" src={`https://finalcapstonedoctorappointment.herokuapp.com/images/${doctor.photo}`} alt={`Doctor ${doctor.name} photo`} />
+              </Link>
+
+              <Card className="border-0 mt-3 text-center">
+                <Card.Body className="border-0">       
+                  <Card.Title className="doctor-name"><b>{ doctor.name }</b></Card.Title>
+                  <Card.Title className="doctor-specialization"><b>{ doctor.specialization }</b></Card.Title>
                   <Card.Text className="doctor-bio">{ doctor.bio }</Card.Text>
-                 
+
                   <div className="social-net">
-        {social.map((item) => (
-          <a href="/" key={item.icon}>
-            <img src={item.icon} alt="social" className="w-8" />
-          </a>
-        ))}
-      </div>
+                    {social.map((item) => (
+                      <a href="/" key={item.icon}>
+                        <img src={item.icon} alt="social" className="w-8" />
+                      </a>
+                    ))}
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
           ))
       }
-      </Carousel>
+        </Carousel>
       </Row>
     </Container>
   );
