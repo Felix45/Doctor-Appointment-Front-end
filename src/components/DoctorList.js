@@ -9,9 +9,9 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
-import insta from '../images2/insta-icon-home.png';
-import fb from '../images2/fb-icon-home.png';
-import twitter from '../images2/twitter-icon-home.png';
+import insta from '../images/insta-icon-home.png';
+import fb from '../images/fb-icon-home.png';
+import twitter from '../images/twitter-icon-home.png';
 
 import "./Doctor.css"
 
