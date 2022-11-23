@@ -1,8 +1,8 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
-import { FaEdit, FaDelete } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
@@ -25,6 +25,7 @@ const social = [
 const DoctorList = () => {
   const { token } = useSelector((state) => state.token);
   const { doctors } = useSelector((state) => state.doctors);
+  const dispatch = useDispatch();
 
   const responsive = {
     superLargeDesktop: {
@@ -97,7 +98,8 @@ const DoctorList = () => {
                       </a>
                     ))}
                   </div>
-                  <button className="deleteDoctor" type="button"><FaDelete/></button>
+                  
+                  <button id={doctor.id} onClick={(e) => { handleDelete(e.target.id); }} className="mt-3" type="button" ><FaTrash /></button>
                 </Card.Body>
               </Card>
             </Col>
