@@ -12,6 +12,8 @@ import Carousel from 'react-multi-carousel';
 import insta from '../images/insta-icon-home.png';
 import fb from '../images/fb-icon-home.png';
 import twitter from '../images/twitter-icon-home.png';
+import { doctorsFetchThunk, doctorsDeleteThunk } from '../redux/slices/doctorSlice';
+
 
 
 const social = [
@@ -46,6 +48,13 @@ const DoctorList = () => {
       items: 1,
     },
   };
+
+  const handleDelete = (doctorId) => {
+    Promise.resolve(dispatch(doctorsDeleteThunk({ token, doctorId }))).then(
+      () => dispatch(doctorsFetchThunk(token)),
+    );
+
+  }
 
   return (
     <Container fluid>
