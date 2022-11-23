@@ -120,6 +120,44 @@ body {
   width: 60% !important;
 }
 
+.apt-col{
+  height: 100vh;
+  background: linear-gradient(90deg,rgba(151,191,14,.6),rgba(149,190,14,.6));
+}
+
+.appointment-form {
+ margin: 10px auto;
+ width: 80%;
+}
+
+.appointment-form .form-control {
+ margin-bottom: 10px;
+ border-radius: 50px;
+}
+
+.appointment-form .btn {
+ border-radius: 50px;
+}
+
+.appointment-form .form-control:focus {
+ box-shadow: none;
+}
+
+.appointment-form .form-control::placeholder {
+ color: #000;
+}
+
+.appointments {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  list-style-type: none;
+}
+
+.appointments ul {
+  list-style-type: none;
+}
+
 @media screen and (min-width: 768px) {
   .menu {
     display: block;

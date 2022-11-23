@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import { FaUserPlus, FaSignInAlt } from 'react-icons/fa';
 import { userSignInThunk } from '../redux/slices/loginSlice';
 
 function Login() {
@@ -30,23 +31,39 @@ function Login() {
   }, [token, navigate]);
 
   return (
-    <Form className="mt-5" onSubmit={(e) => { handleSubmit(e); }}>
+    <Form className="form mt-5 text-center" onSubmit={(e) => { handleSubmit(e); }}>
+      <h2>Log in to your account</h2>
       <Form.Group className="mb-3">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="Enter your email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <Form.Control type="email" className="rounded-pill p-3" placeholder="Enter your email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter your password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <Form.Control type="password" className="rounded-pill p-3" placeholder="Enter your password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </Form.Group>
 
       <Form.Group>
-        <Button type="submit">Sign In</Button>
+        <Button type="submit" className="btn btn-block rounded-pill p-3">
+          <FaSignInAlt />
+          {' '}
+          Sign In
+        </Button>
       </Form.Group>
       <Col xs={12} className="mt-2 p-2">
         <Row>
-          { loginAttempt && <div className="alert alert-danger">Login not successful</div> }
+          <div>
+            Dont have an account ?
+            <Link to="/signup">
+              {' '}
+              <FaUserPlus />
+              {' '}
+              Sign Up
+            </Link>
+          </div>
+        </Row>
+        <Row className="mt-3">
+          { loginAttempt && <div className="alert alert-success">Log In</div> }
         </Row>
       </Col>
     </Form>
