@@ -46,39 +46,39 @@ function Doctor() {
   };
 
   return (
-    <Row>
+    <Row className="apt-col">
       <Col xs={12}>
-        <Form className="mt-5" onSubmit={(e) => { handleSubmit(e); }}>
+        <Form className="appointment-form mt-5" onSubmit={(e) => { handleSubmit(e); }}>
           <Form.Group className="mb-3">
-            <Form.Label>Doctors Name</Form.Label>
+            <Form.Label className=" text-white "><b>Doctors Name</b></Form.Label>
             <Form.Control type="text" placeholder="Enter doctors name" name="doctor" value={name} onChange={(e) => setName(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Select gender</Form.Label>
-            <Form.Select aria-label="Default select example" onChange={(e) => setGender(e.target.value)}>
+            <Form.Label className=" text-white "><b>Select gender</b></Form.Label>
+            <Form.Select className="rounded-pill" aria-label="Default select example" onChange={(e) => setGender(e.target.value)}>
               <option value="M" key={uuid()}>Male</option>
               <option value="F" key={uuid()}>Female</option>
             </Form.Select>
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Specialization</Form.Label>
+            <Form.Label className=" text-white "><b>Specialization</b></Form.Label>
             <Form.Control type="text" placeholder="Enter docotor specialization" name="specialization" value={specialization} onChange={(e) => setSpecialization(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Doctors Bio</Form.Label>
+            <Form.Label className=" text-white "><b>Doctors Bio</b></Form.Label>
             <Form.Control type="text" placeholder="Brief description..." name="description" value={bio} onChange={(e) => setBio(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Doctors Photo</Form.Label>
+            <Form.Label className=" text-white "><b>Doctors Photo</b></Form.Label>
             <Form.Control type="text" placeholder="Enter doctor's photo" name="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
           </Form.Group>
 
           <Form.Group>
-            <Button type="submit">Create Doctor</Button>
+            <Button type="submit"><b>Create Doctor</b></Button>
           </Form.Group>
         </Form>
       </Col>
