@@ -86,7 +86,7 @@ const DoctorList = () => {
                         <img src={item.icon} alt="social" className="w-8" />
                       </a>
                     ))}
-                    </div>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>

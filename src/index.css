@@ -120,31 +120,31 @@ body {
   width: 60% !important;
 }
 
-.apt-col{
+.apt-col {
   height: 100vh;
-  background: linear-gradient(90deg,rgba(151,191,14,.6),rgba(149,190,14,.6));
+  background: linear-gradient(90deg, rgba(151, 191, 14, 0.6), rgba(149, 190, 14, 0.6));
 }
 
 .appointment-form {
- margin: 10px auto;
- width: 80%;
+  margin: 10px auto;
+  width: 80%;
 }
 
 .appointment-form .form-control {
- margin-bottom: 10px;
- border-radius: 50px;
+  margin-bottom: 10px;
+  border-radius: 50px;
 }
 
 .appointment-form .btn {
- border-radius: 50px;
+  border-radius: 50px;
 }
 
 .appointment-form .form-control:focus {
- box-shadow: none;
+  box-shadow: none;
 }
 
 .appointment-form .form-control::placeholder {
- color: #000;
+  color: #000;
 }
 
 .appointments {
