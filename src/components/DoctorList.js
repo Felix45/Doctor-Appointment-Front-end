@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
-import { FaEdit } from 'react-icons/fa';
+import { FaEdit, FaDelete } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -12,6 +12,7 @@ import Carousel from 'react-multi-carousel';
 import insta from '../images/insta-icon-home.png';
 import fb from '../images/fb-icon-home.png';
 import twitter from '../images/twitter-icon-home.png';
+
 
 const social = [
   { icon: insta },
@@ -87,6 +88,7 @@ const DoctorList = () => {
                       </a>
                     ))}
                   </div>
+                  <button className="deleteDoctor" type="button"><FaDelete/></button>
                 </Card.Body>
               </Card>
             </Col>
