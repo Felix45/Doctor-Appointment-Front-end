@@ -56,7 +56,7 @@ function Doctor() {
 
           <Form.Group className="mb-3">
             <Form.Label className=" text-white "><b>Select gender</b></Form.Label>
-            <Form.Select aria-label="Default select example" onChange={(e) => setGender(e.target.value)}>
+            <Form.Select className="rounded-pill" aria-label="Default select example" onChange={(e) => setGender(e.target.value)}>
               <option value="M" key={uuid()}>Male</option>
               <option value="F" key={uuid()}>Female</option>
             </Form.Select>
