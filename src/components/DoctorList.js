@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
 import { FaEdit } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
@@ -12,6 +12,7 @@ import Carousel from 'react-multi-carousel';
 import insta from '../images/insta-icon-home.png';
 import fb from '../images/fb-icon-home.png';
 import twitter from '../images/twitter-icon-home.png';
+import { doctorsFetchThunk, doctorsDeleteThunk } from '../redux/slices/doctorSlice';
 
 const social = [
   { icon: insta },
@@ -22,6 +23,7 @@ const social = [
 const DoctorList = () => {
   const { token } = useSelector((state) => state.token);
   const { doctors } = useSelector((state) => state.doctors);
+  const dispatch = useDispatch();
 
   const responsive = {
     superLargeDesktop: {
@@ -44,6 +46,12 @@ const DoctorList = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1,
     },
+  };
+
+  const handleDelete = (doctorId) => {
+    Promise.resolve(dispatch(doctorsDeleteThunk({ token, doctorId }))).then(
+      () => dispatch(doctorsFetchThunk(token)),
+    );
   };
 
   return (
@@ -87,6 +95,9 @@ const DoctorList = () => {
                       </a>
                     ))}
                   </div>
+                  {
+                    (token.isLoggedIn !== undefined && token.isLoggedIn && token.role === 'admin') && <button id={doctor.id} onClick={(e) => { handleDelete(e.target.id); }} className="mt-3" type="button">Delete</button>
+                  }
                 </Card.Body>
               </Card>
             </Col>

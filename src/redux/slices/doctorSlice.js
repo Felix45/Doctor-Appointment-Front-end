@@ -41,7 +41,7 @@ export const doctorsDeleteThunk = createAsyncThunk(
       'Content-Type': 'application/json',
       Authorization: user.token.token,
     };
-    const URL = `${BASE_URL}/doctors`;
+    const URL = `${BASE_URL}/doctors/${user.doctorId}`;
     await http.delete(URL, { headers });
   },
 );
