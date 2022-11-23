@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -13,8 +13,6 @@ import insta from '../images/insta-icon-home.png';
 import fb from '../images/fb-icon-home.png';
 import twitter from '../images/twitter-icon-home.png';
 import { doctorsFetchThunk, doctorsDeleteThunk } from '../redux/slices/doctorSlice';
-
-
 
 const social = [
   { icon: insta },
@@ -54,8 +52,7 @@ const DoctorList = () => {
     Promise.resolve(dispatch(doctorsDeleteThunk({ token, doctorId }))).then(
       () => dispatch(doctorsFetchThunk(token)),
     );
-
-  }
+  };
 
   return (
     <Container fluid>
@@ -98,8 +95,9 @@ const DoctorList = () => {
                       </a>
                     ))}
                   </div>
-                  
-                  <button id={doctor.id} onClick={(e) => { handleDelete(e.target.id); }} className="mt-3" type="button" ><FaTrash /></button>
+                  {
+                    (token.isLoggedIn !== undefined && token.isLoggedIn && token.role === 'admin') && <button id={doctor.id} onClick={(e) => { handleDelete(e.target.id); }} className="mt-3" type="button">Delete</button>
+                  }
                 </Card.Body>
               </Card>
             </Col>
