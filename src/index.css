@@ -30,6 +30,12 @@ body {
   background-color: var(--bg_primary) !important;
 }
 
+.text-primary {
+  color: var(--bg_primary) !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+}
+
 .menu {
   height: 100vh;
   display: none;
@@ -85,30 +91,60 @@ body {
   background-color: var(--bg_primary);
 }
 
-.apt-col{
-  background: linear-gradient(90deg,rgba(151,191,14,.6),rgba(149,190,14,.6));
+.doctor {
+  width: 50%;
+  margin: auto;
+}
+
+.react-multiple-carousel__arrow {
+  color: #fff !important;
+  padding: 10px !important;
+  min-height: 50px !important;
+  min-width: 150px !important;
+  background-color: var(--bg_primary) !important;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: -20px !important;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: -20px !important;
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  margin: auto;
+  display: block;
+  width: 60% !important;
+}
+
+.apt-col {
+  height: 100vh;
+  background: linear-gradient(90deg, rgba(151, 191, 14, 0.6), rgba(149, 190, 14, 0.6));
 }
 
 .appointment-form {
- margin: 10px auto;
- width: 80%;
+  margin: 10px auto;
+  width: 80%;
 }
 
 .appointment-form .form-control {
- margin-bottom: 10px;
- border-radius: 50px;
+  margin-bottom: 10px;
+  border-radius: 50px;
 }
 
 .appointment-form .btn {
- border-radius: 50px;
+  border-radius: 50px;
 }
 
 .appointment-form .form-control:focus {
- box-shadow: none;
+  box-shadow: none;
 }
 
 .appointment-form .form-control::placeholder {
- color: #000;
+  color: #000;
 }
 
 .appointments {
@@ -138,36 +174,4 @@ body {
   .mobile-menu {
     display: none !important;
   }
-
-  .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .appointment-form {
-    width: 50%;
-    margin: 10px auto;
-  }
-
-  .appointment-form .form-control {
-    margin-bottom: 10px;
-    border-radius: 50px;
-  }
-
-  .appointment-form .btn {
-    border-radius: 50px;
-  }
-
-  .appointment-form .form-control:focus {
-    box-shadow: none;
-  }
-
-  .appointment-form .form-control::placeholder {
-    color: #000;
-  }
-
 }
-
