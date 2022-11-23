@@ -46,16 +46,16 @@ function Doctor() {
   };
 
   return (
-    <Row>
+    <Row className="apt-col">
       <Col xs={12}>
-        <Form className="mt-5" onSubmit={(e) => { handleSubmit(e); }}>
+        <Form className="appointment-form mt-5" onSubmit={(e) => { handleSubmit(e); }}>
           <Form.Group className="mb-3">
-            <Form.Label>Doctors Name</Form.Label>
+            <Form.Label className=" text-white ">Doctors Name</Form.Label>
             <Form.Control type="text" placeholder="Enter doctors name" name="doctor" value={name} onChange={(e) => setName(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Select gender</Form.Label>
+            <Form.Label className=" text-white ">Select gender</Form.Label>
             <Form.Select aria-label="Default select example" onChange={(e) => setGender(e.target.value)}>
               <option value="M" key={uuid()}>Male</option>
               <option value="F" key={uuid()}>Female</option>
@@ -63,17 +63,17 @@ function Doctor() {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Specialization</Form.Label>
+            <Form.Label className=" text-white ">Specialization</Form.Label>
             <Form.Control type="text" placeholder="Enter docotor specialization" name="specialization" value={specialization} onChange={(e) => setSpecialization(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Doctors Bio</Form.Label>
+            <Form.Label className=" text-white ">Doctors Bio</Form.Label>
             <Form.Control type="text" placeholder="Brief description..." name="description" value={bio} onChange={(e) => setBio(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Doctors Photo</Form.Label>
+            <Form.Label className=" text-white ">Doctors Photo</Form.Label>
             <Form.Control type="text" placeholder="Enter doctor's photo" name="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
           </Form.Group>
 
