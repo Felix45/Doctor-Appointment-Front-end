@@ -36,12 +36,12 @@ export const doctorsFetchThunk = createAsyncThunk(
 
 export const doctorsDeleteThunk = createAsyncThunk(
   'doctors/delete',
-  async (user, doctorId) => {
+  async (user) => {
     const headers = {
       'Content-Type': 'application/json',
       Authorization: user.token.token,
     };
-    const URL = `${BASE_URL}/doctors/${doctorId}`;
+    const URL = `${BASE_URL}/doctors/${user.doctorId}`;
     await http.delete(URL, { headers });
   },
 );
