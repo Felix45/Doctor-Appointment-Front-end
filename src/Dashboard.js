@@ -16,7 +16,7 @@ import Splash from './components/Splash';
 import Profile from './components/Profile';
 import NavMenu from './components/NavBar';
 
-function Dashboard() {
+const Dashboard = () => {
   const dispatch = useDispatch();
 
   const { token } = useSelector((state) => state.token);
@@ -122,6 +122,6 @@ function Dashboard() {
       </Row>
     </Container>
   );
-}
+};
 
 export default Dashboard;

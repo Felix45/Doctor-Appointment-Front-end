@@ -1,6 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Doctors Appointment Front-end
+![](src/images/Screenshot.png)
+
 
 > This web application is the API that serves as the front-end to the [Doctor-appointment-back-end](https://github.com/silviatofana/Doctor-appointment)
 
@@ -79,6 +81,14 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
 ## Acknowledgments
 
 - Hats off to the whole microverse community
+- credit to Murat Korkmaz for the design [behance.net](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign )
+.
+
+
+## License 
+
+This project is [MIT](LICENSE) licensed.

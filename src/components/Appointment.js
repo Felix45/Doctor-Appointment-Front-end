@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { v4 as uuid } from 'uuid';
 import { appointmentsCreateThunk, appointmentsFetchThunk } from '../redux/slices/appointmentSlice';
 
-function Appointment() {
+const Appointment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dateOfAppointment, setDate] = useState('');
@@ -50,7 +50,7 @@ function Appointment() {
         <Form className="appointment-form mt-5" onSubmit={(e) => { handleSubmit(e); }}>
           <Form.Group className="mb-3">
             <Form.Label className=" text-white "><b>Select a doctor</b></Form.Label>
-            <Form.Select className="rounded-pill" aria-label="Default select example" onChange={(e) => setDoctorId(e.target.value)}>
+            <Form.Select className="rounded-pill" aria-label="Default select example" value={doctorId} onChange={(e) => setDoctorId(e.target.value)}>
               {
                 doctors.map((doctor) => (
                   <option key={uuid()} value={doctor.id}>
@@ -84,6 +84,6 @@ function Appointment() {
       <Col xs={12} className="mt-2 p-2" />
     </Row>
   );
-}
+};
 
 export default Appointment;
