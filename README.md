@@ -81,6 +81,14 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
 ## Acknowledgments
 
 - Hats off to the whole microverse community
+- credit to Murat Korkmaz for the design [behance.net](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign )
+.
+
+
+## License 
+
+This project is [MIT](LICENSE) licensed.
