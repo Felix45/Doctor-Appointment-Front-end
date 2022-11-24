@@ -1,6 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Doctors Appointment Front-end
+![](src/images/Screenshot.png)
+
 
 > This web application is the API that serves as the front-end to the [Doctor-appointment-back-end](https://github.com/silviatofana/Doctor-appointment)
 
