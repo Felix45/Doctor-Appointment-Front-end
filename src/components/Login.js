@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { FaUserPlus, FaSignInAlt } from 'react-icons/fa';
 import { userSignInThunk } from '../redux/slices/loginSlice';
 
-function Login() {
+const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');

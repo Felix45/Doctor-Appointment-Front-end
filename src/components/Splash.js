@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import DoctorList from './DoctorList';
 
-function Splash() {
+const Splash = () => {
   const location = useLocation();
   const { token } = useSelector((state) => state.token);
 

@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 import { userSignUpThunk } from '../redux/slices/authSlice';
 
-function SignUp() {
+const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');

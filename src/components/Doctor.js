@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { doctorsCreateThunk, doctorsFetchThunk } from '../redux/slices/doctorSlice';
 
-function Doctor() {
+const Doctor = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
