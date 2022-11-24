@@ -15,26 +15,24 @@ import DoctorList from './components/DoctorList';
 import DoctorDetails from './components/DoctorDetails';
 
 const persistor = persistStore(store);
-const App = () => {
-  return (
-    <Router>
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <Routes>
-            <Route path="/" element={<Dashboard />}>
-              <Route exact path="signup" element={<SignUp />} />
-              <Route exact path="login" element={<Login />} />
-              <Route exact path="doctor" element={<Doctor />} />
-              <Route exact path="doctors" element={<DoctorList />} />
-              <Route exact path="doctors/:index" element={<DoctorDetails />} />
-              <Route exact path="appointments" element={<Appointment />} />
-              <Route exact path="myappointments" element={<AppointmentListing />} />
-            </Route>
-          </Routes>
-        </PersistGate>
-      </Provider>
-    </Router>
-  );
-}
+const App = () => (
+  <Router>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Routes>
+          <Route path="/" element={<Dashboard />}>
+            <Route exact path="signup" element={<SignUp />} />
+            <Route exact path="login" element={<Login />} />
+            <Route exact path="doctor" element={<Doctor />} />
+            <Route exact path="doctors" element={<DoctorList />} />
+            <Route exact path="doctors/:index" element={<DoctorDetails />} />
+            <Route exact path="appointments" element={<Appointment />} />
+            <Route exact path="myappointments" element={<AppointmentListing />} />
+          </Route>
+        </Routes>
+      </PersistGate>
+    </Provider>
+  </Router>
+);
 
 export default App;

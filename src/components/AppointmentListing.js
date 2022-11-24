@@ -68,6 +68,6 @@ const AppointmentListing = () => {
       </Col>
     </Row>
   );
-}
+};
 
 export default AppointmentListing;

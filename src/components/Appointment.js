@@ -84,6 +84,6 @@ const Appointment = () => {
       <Col xs={12} className="mt-2 p-2" />
     </Row>
   );
-}
+};
 
 export default Appointment;
