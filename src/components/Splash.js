@@ -27,6 +27,6 @@ const Splash = () => {
       </Row>
     </Container>
   );
-}
+};
 
 export default Splash;

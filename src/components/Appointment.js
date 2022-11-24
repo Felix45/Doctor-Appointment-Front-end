@@ -50,7 +50,7 @@ function Appointment() {
         <Form className="appointment-form mt-5" onSubmit={(e) => { handleSubmit(e); }}>
           <Form.Group className="mb-3">
             <Form.Label className=" text-white "><b>Select a doctor</b></Form.Label>
-            <Form.Select className="rounded-pill" aria-label="Default select example" onChange={(e) => setDoctorId(e.target.value)}>
+            <Form.Select className="rounded-pill" aria-label="Default select example" value={doctorId} onChange={(e) => setDoctorId(e.target.value)}>
               {
                 doctors.map((doctor) => (
                   <option key={uuid()} value={doctor.id}>

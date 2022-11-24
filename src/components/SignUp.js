@@ -90,6 +90,6 @@ const SignUp = () => {
       </Col>
     </Form>
   );
-}
+};
 
 export default SignUp;

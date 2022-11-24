@@ -16,6 +16,6 @@ const Profile = () => {
       </Row>
     </Container>
   );
-}
+};
 
 export default Profile;
