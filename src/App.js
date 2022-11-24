@@ -15,8 +15,7 @@ import DoctorList from './components/DoctorList';
 import DoctorDetails from './components/DoctorDetails';
 
 const persistor = persistStore(store);
-
-function App() {
+const App = () => {
   return (
     <Router>
       <Provider store={store}>

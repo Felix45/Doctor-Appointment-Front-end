@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { v4 as uuid } from 'uuid';
 import { appointmentsFetchThunk, appointmentsDeleteThunk } from '../redux/slices/appointmentSlice';
 
-function AppointmentListing() {
+const AppointmentListing = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

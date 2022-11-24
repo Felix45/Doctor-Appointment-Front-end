@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { v4 as uuid } from 'uuid';
 import { appointmentsCreateThunk, appointmentsFetchThunk } from '../redux/slices/appointmentSlice';
 
-function Appointment() {
+const Appointment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dateOfAppointment, setDate] = useState('');
