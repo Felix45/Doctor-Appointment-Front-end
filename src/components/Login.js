@@ -68,6 +68,6 @@ const Login = () => {
       </Col>
     </Form>
   );
-}
+};
 
 export default Login;
