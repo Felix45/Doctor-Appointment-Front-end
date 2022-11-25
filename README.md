@@ -9,7 +9,7 @@
 ## Back-end Repository
 | Repository | Pull request |
 |------------|------------|
-|[Repo link >>](https://github.com/silviatofana/Doctor-appointment)|[Pull request Here >>](https://github.com/silviatofana/Doctor-appointment/pull/)|
+|[Repo link >>](https://github.com/silviatofana/Doctor-appointment)|[Pull request Here >>](https://github.com/silviatofana/Doctor-appointment/pull/32)|
 
 ## Team members: @felix45, @henrycode460, @silviatofana
 
