@@ -11,6 +11,8 @@
 |------------|------------|
 |[Repo link >>](https://github.com/silviatofana/Doctor-appointment)|[Pull request Here >>](https://github.com/silviatofana/Doctor-appointment/pull/)|
 
+## Team members: @felix45, @henrycode460, @silviatofana
+
 ## Live demo
 [Click here for live demo >>](https://doctora-app.netlify.app/)
 
