@@ -14,10 +14,9 @@ const Appointment = () => {
   const [dateOfAppointment, setDate] = useState('');
   const [timeOfAppointment, setTime] = useState('');
   const [description, setDescription] = useState('');
-  const [doctorId, setDoctorId] = useState('');
-
   const { token } = useSelector((state) => state.token);
   const { doctors } = useSelector((state) => state.doctors);
+  const [doctorId, setDoctorId] = useState(doctors[0].id);
 
   useEffect(() => {
     if (!token.isLoggedIn) navigate('/login');
